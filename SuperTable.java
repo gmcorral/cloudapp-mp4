@@ -39,7 +39,7 @@ public class SuperTable{
       System.out.println(" Table created ");
       
       // Instantiating HTable class
-      HTable hTable = new HTable(config, "emp");
+      HTable hTable = new HTable(config, "powers");
 
       // Repeat these steps as many times as necessary
 
