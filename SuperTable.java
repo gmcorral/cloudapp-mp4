@@ -22,14 +22,13 @@ public class SuperTable{
    public static void main(String[] args) throws IOException {
 
       // Instantiate Configuration class
-	  Configuration con = HBaseConfiguration.create();
+	  Configuration config = HBaseConfiguration.create();
 
       // Instantiate HBaseAdmin class
-	  HBaseAdmin admin = new HBaseAdmin(con);
+	  HBaseAdmin admin = new HBaseAdmin(config);
 	  
       // Instantiate table descriptor class
-	  HTableDescriptor tableDescriptor = new
-	  HTableDescriptor(TableName.valueOf("powers"));
+	  HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("powers"));
 	  
       // Add column families to table descriptor
 	  tableDescriptor.addFamily(new HColumnDescriptor("personal"));
@@ -122,7 +121,7 @@ public class SuperTable{
       scan.addColumn(Bytes.toBytes("personal"), Bytes.toBytes("hero"));
       
       // Get the scan result
-      ResultScanner scanner = table.getScanner(scan);
+      ResultScanner scanner = hTable.getScanner(scan);
       
       // Read values from scan result
       // Print scan result
